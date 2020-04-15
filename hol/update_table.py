@@ -1,4 +1,5 @@
 import sqlite3
+from connect import get_database_connection
 
 DB_NAME = "author_contracts.db"
 
@@ -9,40 +10,30 @@ def add_column_to_db():
     
     sql_query = ''' ALTER TABLE authors ADD COLUMN genre CHAR(15); '''
     
-     # Make connection to db
-    cxn = sqlite3.connect(DB_NAME)
+    # make connection to db
 
-    # Create a cursor to db
-    cur = cxn.cursor()
+    # send sql query to request
 
-    # Send sql query to request
-    cur.execute(sql_query)
-    cxn.commit()
-
-    #closing database connection.
-    if(cxn):
-        cur.close()
-        cxn.close()    
+    # close database connection.   
 
 def test_add_column_to_db():
     sql_query = ''' SELECT sql FROM sqlite_master WHERE name='authors'; '''
     
-     # Make connection to db
+    # make connection to db
     cxn = sqlite3.connect(DB_NAME)
 
-    # Create a cursor to db
+    # create a cursor to db
     cur = cxn.cursor()
         
-    # Send sql query to request
+    # send sql query to request
     cur.execute(sql_query)
     results = cur.fetchall()
     
     assert "genre CHAR(15)" in results[0][0], "column was not added properly"
 
-    #closing database connection.
-    if(cxn):
-        cur.close()
-        cxn.close()  
+    # close database connection.
+    cur.close()
+    cxn.close()  
 
 def add_data_to_column():
 
@@ -55,47 +46,38 @@ def add_data_to_column():
         ["The Sun Also Orbits", "mystery"]
     ]
     
-     # Make connection to db
-    cxn = sqlite3.connect(DB_NAME)
-
-    # Create a cursor to db
-    cur = cxn.cursor()
-
-    # Send sql query to request
-    for row in genre_data:
-        if row[0]=='title':
-            next
-        else:
-            print(f"{row[0]}")
-            cur.execute(f"UPDATE authors SET genre = \"{row[1]}\" WHERE title = \"{row[0]}\";")
-    cxn.commit()
+    # get connection and cursor to db
+    
+    # send sql query to request
+    # remove header row from contract_list
 
 
-    #closing database connection.
-    if(cxn):
-        cur.close()
-        cxn.close() 
+    # use executemany to load data
+
+
+    # close database connection.
+    cur.close()
+    cxn.close() 
 
 def test_add_data_to_column():
     sql_query = ''' SELECT genre FROM authors; '''
     
-     # Make connection to db
+    # make connection to db
     cxn = sqlite3.connect(DB_NAME)
 
-    # Create a cursor to db
+    # create a cursor to db
     cur = cxn.cursor()
         
-    # Send sql query to request
+    # send sql query to request
     cur.execute(sql_query)
     results = cur.fetchall()
 
     expected = [('biography',), ('satire',), ('horror',), ('guide',), ('mystery',)]
     assert results == expected, "genre did not populate correctly"
 
-    #closing database connection.
-    if(cxn):
-        cur.close()
-        cxn.close()  
+    # close database connection.
+    cur.close()
+    cxn.close()  
 
 def main():
     add_column_to_db()

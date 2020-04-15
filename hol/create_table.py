@@ -30,15 +30,14 @@ def create_table():
     )   
     """
     
-    # Get connection and cursor to db
-    cxn, cur = get_database_connection()
+    # get connection and cursor to db
+
     
-    # Send sql query to request
+    # send sql query to request
     
         
-    # Closing database connection.
-    cur.close()
-    cxn.close
+    # close database connection.
+
 
         
 def test_table_created():
@@ -48,16 +47,16 @@ def test_table_created():
     
     test_stmt = ''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='authors'; '''
     
-    # Get connection and cursor to db
+    # get connection and cursor to db
     cxn, cur = get_database_connection()
         
-    # Send sql query to request
+    # send sql query to request
     cur.execute(test_stmt)
     cxn.commit()
     
     assert cur.fetchone()[0] == 1, 'table does not exist.'
 
-    # Close database connection.
+    # close database connection.
     cur.close()
     cxn.close()
            
@@ -65,12 +64,15 @@ def populate_table():
 
     add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
     
-    # Get connection and cursor to db
-    cxn, cur = get_database_connection()
-  
-    # Send sql query to request
+    # get connection and cursor to db
+    
+    # send sql query to request
+    # remove header row from contract_list
 
-    # Close database connection.
+
+    # use executemany to load data
+
+    # close database connection.
 
 
 def test_populate_table():

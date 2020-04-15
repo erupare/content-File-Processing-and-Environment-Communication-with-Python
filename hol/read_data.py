@@ -1,4 +1,5 @@
 import sqlite3
+from connect import get_database_connection
 
 DB_NAME = "author_contracts.db"
 
@@ -9,15 +10,13 @@ def read_data_from_db():
     
     sql_query = ''' SELECT author,title,due_date FROM authors; '''
     
-    # Make connection to db
-
-    # Create a cursor to db
+    # make connection to db
         
-    # Send sql query to request
+    # send sql query to request
 
-    # Closing database connection.
+    # closing database connection.
 
-    return results    
+    # return    
 
 def test_read_data(results):
     expected = [('Thompson, Keith', 'Oh Python! My Python!', '2029-11-15'), ('Fritts, Larry', 'Fun with Django', '2021-06-23'), ('Applegate, John', 'When Bees Attack! The Horror!', '2020-12-10'), ('Brown, James', "Martin Buber's Philosophies", '0221-07-12'), ('Smith, Jackson', 'The Sun Also Orbits', '2020-10-31'), ('Smith, Jackson', 'The Sun Also Orbits', '2029-10-31')]  
