@@ -37,13 +37,15 @@ def test_add_column_to_db():
 
 def add_data_to_column():
 
+    sql_stmt = ''' UPDATE authors SET genre = ? WHERE title = ? '''
+
     genre_data = [
-        ["title", "genre"],
-        ["Oh Python! My Python!", "biography"],
-        ["Fun with Django", "satire"],
-        ["When Bees Attack! The Horror!", "horror"],
-        ["Martin Buber's Philosophies", "guide"],
-        ["The Sun Also Orbits", "mystery"]
+        ["genre", "title"],
+        ["biography", "Oh Python! My Python!"],
+        ["satire", "Fun with Django"],
+        ["horror", "When Bees Attack! The Horror!"],
+        ["guide", "Martin Buber's Philosophies"],
+        ["mystery", "The Sun Also Orbits"]
     ]
     
     # get connection and cursor to db
