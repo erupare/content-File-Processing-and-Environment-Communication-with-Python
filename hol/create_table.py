@@ -18,9 +18,9 @@ contract_list = [
 
 def create_table():
     """
-    Create a table populated with the given data.
+    Creates a table ready to accept our data.
     """
-    
+
     create_table = """ CREATE TABLE authors(
         ID          INTEGER PRIMARY KEY     AUTOINCREMENT,
         author      TEXT                NOT NULL,
@@ -29,15 +29,17 @@ def create_table():
         due_date    CHAR(15)            NOT NULL
     )   
     """
-    
-    # get connection and cursor to db
 
-    
-    # send sql query to request
-    
-        
-    # close database connection.
+    # get db connections
+    cxn, cur = get_database_connection()
 
+    # Send sql query to cur and then execute it
+    cur.execute(create_table)
+    cxn.commit()
+
+    # close database connections
+    cur.close()
+    cxn.close()
 
         
 def test_table_created():
