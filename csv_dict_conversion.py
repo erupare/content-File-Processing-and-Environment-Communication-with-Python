@@ -3,20 +3,26 @@ import csv
 def csv2dict(filename):
 
     # open file and create DictReader object
+    # use the DictReader to get data and 
+    # add data to a variable named data_list
     with open(filename, newline="") as infile:
-        pass
+        pass # student replaces with code
 
         # object to hold results
-        data_dict = []
+      data_list = []
         # append rows from read_csv to data_dict
-        pass
+        pass # studnet replaces with code
 
         # return data_dict
 
 def dict2csv(filename, fieldnames, data):
+    
+    # open file and create DictWriter object
+    # use the DictWriter to write csv data 
+    # to file
 
     with open(filename, "w", newline="") as outfile:
-        pass
+        pass # student replaces with code
 
 def main():
 
