@@ -5,16 +5,6 @@ from connect_db import get_database_connection
 
 DB_NAME = "author_contracts.db"
 
-contract_list = [
-    ["Thompson, Keith", "Oh Python! My Python!", 1200, "2029-11-15"],
-    ["Fritts, Larry", "Fun with Django", 150, "2021-06-23"],
-    ["Applegate, John", "When Bees Attack! The Horror!", 550, "2020-12-10"],
-    ["Brown, James", "Martin Buber's Philosophies", 700, "0221-07-12"],
-    ["Smith, Jackson", "The Sun Also Orbits", 400, "2020-10-31"],
-    ["Smith, Jackson", "The Sun Also Orbits", 600, "2029-10-31"]
-]
-  
-
 def create_table():
     """
     Creates a table ready to accept our data.
@@ -37,8 +27,17 @@ def populate_table():
     Populate the table database.
 
     write code that will use the given sql statement to populate
-    the new table
+    the new table with the contract_list data
     """
+
+    contract_list = [
+    ["Thompson, Keith", "Oh Python! My Python!", 1200, "2029-11-15"],
+    ["Fritts, Larry", "Fun with Django", 150, "2021-06-23"],
+    ["Applegate, John", "When Bees Attack! The Horror!", 550, "2020-12-10"],
+    ["Brown, James", "Martin Buber's Philosophies", 700, "0221-07-12"],
+    ["Smith, Jackson", "The Sun Also Orbits", 400, "2020-10-31"],
+    ["Smith, Jackson", "The Sun Also Orbits", 600, "2029-10-31"]
+]
 
     add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
 
@@ -51,7 +50,8 @@ def test_table_created():
     test_stmt = ''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='authors'; '''
     
     # get connection and cursor to db
-    cxn, cur = get_database_connection()
+    cxn = get_database_connection()
+    cur = cxn.cursor()
         
     # send sql query to request
     cur.execute(test_stmt)
@@ -65,7 +65,9 @@ def test_table_created():
 
 def test_populate_table():
     # Get connection and cursor to db
-    cxn, cur = get_database_connection()
+    cxn = get_database_connection()
+    cur = cxn.cursor()
+    
     cur.execute("select * from authors;")
     results = cur.fetchall()
 
