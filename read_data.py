@@ -6,17 +6,12 @@ DB_NAME = "author_contracts.db"
 def read_data_from_db():
     """
     Read data from database.
+
+    execute the given sql statement and return the results
     """
     
     sql_query = ''' SELECT author,title,due_date FROM authors; '''
-    
-    # make connection to db
-        
-    # send sql query to request
-
-    # closing database connection.
-
-    # return    
+      
 
 def test_read_data(results):
     expected = [('Thompson, Keith', 'Oh Python! My Python!', '2029-11-15'), ('Fritts, Larry', 'Fun with Django', '2021-06-23'), ('Applegate, John', 'When Bees Attack! The Horror!', '2020-12-10'), ('Brown, James', "Martin Buber's Philosophies", '0221-07-12'), ('Smith, Jackson', 'The Sun Also Orbits', '2020-10-31'), ('Smith, Jackson', 'The Sun Also Orbits', '2029-10-31')]  
