@@ -1,12 +1,11 @@
 # create_table.py
 
 import sqlite3
-from connect import get_database_connection
+from connect_db import get_database_connection
 
 DB_NAME = "author_contracts.db"
 
 contract_list = [
-    ["author", "title", "pages", "due date"],
     ["Thompson, Keith", "Oh Python! My Python!", 1200, "2029-11-15"],
     ["Fritts, Larry", "Fun with Django", 150, "2021-06-23"],
     ["Applegate, John", "When Bees Attack! The Horror!", 550, "2020-12-10"],
@@ -19,9 +18,12 @@ contract_list = [
 def create_table():
     """
     Creates a table ready to accept our data.
+
+    write code that will execute the given sql statment
+    on the database
     """
 
-    create_table = """ CREATE TABLE authors(
+    create_table = """ CREATE TABLE IF NOT EXISTS authors(
         ID          INTEGER PRIMARY KEY     AUTOINCREMENT,
         author      TEXT                NOT NULL,
         title       TEXT                NOT NULL,
@@ -29,19 +31,18 @@ def create_table():
         due_date    CHAR(15)            NOT NULL
     )   
     """
+         
+def populate_table():
+    """
+    Populate the table database.
 
-    # get db connections
-    cxn, cur = get_database_connection()
+    write code that will use the given sql statement to populate
+    the new table
+    """
 
-    # Send sql query to cur and then execute it
-    cur.execute(create_table)
-    cxn.commit()
+    add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
 
-    # close database connections
-    cur.close()
-    cxn.close()
 
-        
 def test_table_created():
     """ 
     Test table was created.
@@ -61,21 +62,6 @@ def test_table_created():
     # close database connection.
     cur.close()
     cxn.close()
-           
-def populate_table():
-
-    add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
-    
-    # get connection and cursor to db
-    
-    # send sql query to request
-    # remove header row from contract_list
-
-
-    # use executemany to load data
-
-    # close database connection.
-
 
 def test_populate_table():
     # Get connection and cursor to db
@@ -84,6 +70,9 @@ def test_populate_table():
     results = cur.fetchall()
 
     assert len(results) == 6, 'The table does not have six rows.'
+
+    cur.close()
+    cxn.close()
 
 def main():
     create_table()

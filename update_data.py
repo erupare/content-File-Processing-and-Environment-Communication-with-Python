@@ -6,15 +6,23 @@ DB_NAME = "author_contracts.db"
 def delete_data_from_db():
     """
     Delete selected data from database.
+
+    execute the given sql statement to remove
+    the extra data
     """
     
     sql_query = ''' DELETE FROM authors WHERE (author="Smith, Jackson" AND pages=400); '''
     
-    # make connection to db
+ 
 
-    # send sql query to request
+def update_data():
+    """ Update the selected data.
 
-    # close database connection. 
+    execute the given sql statement to 
+    correct the due date of the entry
+    """
+    sql_query = ''' UPDATE authors SET due_date="2020-10-31" WHERE author="Smith, Jackson"; '''
+    
 
 def test_delete_data():
     sql_query = ''' SELECT count(author) FROM authors WHERE author="Smith, Jackson"; '''
@@ -33,16 +41,7 @@ def test_delete_data():
 
     # close database connection.
     cur.close()
-    cxn.close()  
-
-def update_data():
-    sql_query = ''' UPDATE authors SET due_date="2020-10-31" WHERE author="Smith, Jackson"; '''
-    
-    # make connection to db
-
-    # send sql query to request
-
-    # close database connection. 
+    cxn.close() 
 
 def test_update_data():
     sql_query = ''' SELECT due_date FROM authors WHERE author="Smith, Jackson"; '''
