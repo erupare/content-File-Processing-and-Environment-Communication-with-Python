@@ -34,7 +34,8 @@ if __name__ == "__main__":
         f.close()
     
     # test file contents are the same
-    assert book_input.read() == book_copy.read()
+    assert book_input.read() == book_copy.read(), f"Expected: {book_copy.read()}\nGot: {book_input.read()}"
+
 
 
     # write book to a BytesIO object using function copy_book
@@ -52,14 +53,14 @@ if __name__ == "__main__":
         exit(1)
 
     # test
-    assert book_input.read() == book_stream.getvalue()
+    assert book_input.read() == book_stream.getvalue(), f"Expected: {book_copy.read()}\nGot: {book_stream.getvalue()}"
 
     # close all open files
     pass # student input needed
 
     # test
-    assert book_input.closed == True
-    assert book_copy.closed == True
-    assert book_stream.closed == True
+    assert book_input.closed == True, f"Expected: True \nGot: False"
+    assert book_copy.closed == True, f"Expected: True \nGot: False"
+    assert book_stream.closed == True, f"Expected: True \nGot: False"
 
 
