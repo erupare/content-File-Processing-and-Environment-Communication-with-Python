@@ -14,14 +14,19 @@ title_due_dates = [
 # add a timedelta representing the last minute of the day
 pass # student code here
 
+# for testing use
+title_due_dates_datetime = title_due_dates
+
 # replace the datetime object with a string representation
 # remember SQLite stores dates as strings
 pass # student code here
 
+# for testing use
+title_due_dates_string = title_due_dates
 # test 
 
 expected_datetimes = [['Oh Python! My Python!', datetime(2020, 11, 15, 23, 59)], ['Fun with Django', datetime(2020, 6, 23, 23, 59)], ['When Bees Attack! The Horror!', datetime(2020, 12, 10, 23, 59)], ["Martin Buber's Philosophies", datetime(2020, 7, 12, 23, 59)], ['The Sun Also Orbits', datetime(2020, 10, 31, 23, 59)]]
-assert title_due_dates == expected_datetimes
+assert title_due_dates_datetime == expected_datetimes
 
 expected_list = [['Oh Python! My Python!', '2020-11-15 23:59:00'], ['Fun with Django', '2020-06-23 23:59:00'], ['When Bees Attack! The Horror!', '2020-12-10 23:59:00'], ["Martin Buber's Philosophies", '2020-07-12 23:59:00'], ['The Sun Also Orbits', '2020-10-31 23:59:00']]
-assert title_due_dates == expected_list
+assert title_due_dates_string == expected_list
