@@ -5,15 +5,8 @@ def csv2dict(filename):
     # open file and create DictReader object
     # use the DictReader to get data and 
     # add data to a variable named data_list
-    with open(filename, newline="") as infile:
-        pass # student replaces with code
-
-        # object to hold results
-      data_list = []
-        # append rows from read_csv to data_dict
-        pass # studnet replaces with code
-
-        # return data_dict
+    
+    pass # student code goes here
 
 def dict2csv(filename, fieldnames, data):
     
@@ -21,8 +14,7 @@ def dict2csv(filename, fieldnames, data):
     # use the DictWriter to write csv data 
     # to file
 
-    with open(filename, "w", newline="") as outfile:
-        pass # student replaces with code
+    pass # student code goes here
 
 def main():
 
