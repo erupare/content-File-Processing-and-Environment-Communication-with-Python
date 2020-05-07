@@ -1,6 +1,11 @@
 import io
 
-# student input needed for function to copy from one stream to the other
+def copy_book(input, output):
+    """
+    write the input to the output
+    """
+
+    pass # student code here
 
 
 if __name__ == "__main__":
@@ -10,15 +15,15 @@ if __name__ == "__main__":
     # append _text to the end of the name of the copy
     # student input needed, please use book_input and book_copy
     # as the handles to the files
-    book_input = None
-    book_copy = None
+    pass # student code needed here
+
 
     # send to function `copy_book(input, output)`
     # make sure the cursor is at the start of each file
-    # student input needed
+    pass # student code needed here
 
     # to test return each file to the head of the file
-    # student input needed
+    pass # student code needed here
 
     # test file exists
     try:
@@ -35,11 +40,11 @@ if __name__ == "__main__":
     # write book to a BytesIO object using function copy_book
     # make sure the cursor is at the start of each file (memory file also)
     # send to copy function
-    # student input needed, please use book_stream as the output
-    book_stream = None
+    pass  # student code needed here
+    
 
     # to test return each file to the head of the file
-    # student input needed
+    pass # student input needed
     
     # test file exists
     if not book_stream.readable():
@@ -50,7 +55,7 @@ if __name__ == "__main__":
     assert book_input.read() == book_stream.getvalue()
 
     # close all open files
-    # student input needed
+    pass # student input needed
 
     # test
     assert book_input.closed == True
