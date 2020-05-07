@@ -8,4 +8,5 @@ def get_database_connection():
     to the database and return the connection
     """
 
+    pass
 

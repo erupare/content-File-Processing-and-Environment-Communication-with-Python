@@ -21,7 +21,10 @@ def create_table():
         due_date    CHAR(15)            NOT NULL
     )   
     """
-         
+
+    pass # student code goes here
+
+
 def populate_table():
     """
     Populate the table database.
@@ -41,6 +44,7 @@ def populate_table():
 
     add_data_stmt = ''' INSERT INTO authors(author,title,pages,due_date) VALUES(?,?,?,?); '''
 
+    pass # student code goes here
 
 def test_table_created():
     """ 
