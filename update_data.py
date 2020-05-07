@@ -1,5 +1,5 @@
 import sqlite3
-from connect import get_database_connection
+from connect_db import get_database_connection
 
 DB_NAME = "author_contracts.db"
 
