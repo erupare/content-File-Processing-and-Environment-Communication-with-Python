@@ -24,4 +24,4 @@ except FileNotFoundError:
 with open("test_printer_config.ini", "r") as f:
     expected_text = f.read()
 
-assert config_text == expected_text
+assert config_text == expected_text, f"Expected: {expected_text}\nGot: {config_text}"
